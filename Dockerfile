@@ -1,7 +1,8 @@
-FROM ubuntu:latest
-RUN apt-get update -y
-RUN apt-get install apache2 -y
-WORKDIR /var/www/html
+FROM node:18
+WORKDIR /app
+COPY ./package.json .
+RUN npm install
 COPY . .
-EXPOSE 8086
-ENTRYPOINT apachectl -D FOREGROUND
+EXPOSE 3000
+ENTRYPOINT ["node", "index.js"]
+ 
