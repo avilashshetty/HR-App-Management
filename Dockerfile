@@ -1,8 +1,7 @@
 FROM node:18
-WORKDIR /app
-COPY ./package.json .
+WORKDIR /usr/src/app
+COPY ./package*.json ./
 RUN npm install
 COPY . .
-EXPOSE 3000
-ENTRYPOINT ["node", "index.js"]
- 
+EXPOSE 3012
+ENTRYPOINT ["node", "app.js"]
